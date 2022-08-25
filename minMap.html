@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>红色路线</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link rel="stylesheet" href="swiper/swiper-bundle.min.css">
+
+
+<!--<link rel="stylesheet" href="css/index.scss">-->
+<style>
+    /* 大屏幕 ：大于等于980px*/
+    @media (min-width: 980px) {
+
+    }
+
+    /*!* 平板电脑和小屏电脑之间的分辨率 *!*/
+    @media (min-width: 768px) and (max-width: 979px) {
+
+    }
+
+    /* 横向放置的手机及分辨率更小的设备 */
+    @media (max-width: 768px) {
+
+        html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*新知识，盒子大小不会受padding和margin的影响*/
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        body {
+            width: 100%;
+            /*height: 667px;*/
+            /*height: 100%;*/
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+
+
+
+        .tancuang {
+            position: fixed;
+            background: #000;
+            z-index: 10;
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            /*display: none;*/
+        }
+
+        .t-maxbox {
+            position: fixed;
+            z-index: 11;
+            width: 350px;
+            height: 604px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            /* transform: translateY(-50%); */
+            top: 53%;
+            background-color: rgb(255, 251, 240);
+
+        }
+        .t-lunbo {
+            height: 40%;
+            width: 100%;
+            /*background-color: rgb(18, 52, 205);*/
+        }
+        .t-neirong {
+            height: 60%;
+            width: 100%;
+            color: rgb(117,101,86);
+
+        }
+
+
+        /*地图*/
+        .div1 {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            /*overflow: hidden;*/
+
+            overflow:scroll;
+        }
+        .div1::-webkit-scrollbar{
+            display: none;
+        }
+
+
+        .div2 {
+            width: 780px;
+            height: 848px;
+            /*width: 100%;*/
+            /*height: 100%;*/
+            position: relative;
+            /*background-color: #cc4e71;*/
+            /*margin-left: 50%;*/
+        }
+        .contents{
+            padding: 0px 33px;!important;
+        }
+        .closeBtn img {
+            height: 100%;
+            /*margin-left: -50%;*/
+        }
+        .backtu{
+            position: relative;
+            top: 40px;
+            left: 40px;
+            /*margin-right: 20px;*/
+            /*background-color: #cc4e71;*/
+            width: 700px;
+            height: 848px;
+            /*width: 100%;*/
+            /*height: 100%;*/
+        }
+        #imgid{
+            height: 100%;
+            /*width: 100%;*/
+            margin-right: 40px;
+            /*margin-left: -50%;*/
+        }
+        .floatfont{
+            width: 114px;
+            height: 95px;
+        }
+
+
+            #shenyun {
+                position: relative;
+                left: 40%;
+                bottom: 84%;
+        }
+        #wanghu{
+            position: relative;
+            left: 59%;
+            bottom: 51%;
+        }
+        #zhusheng{
+            position: relative;
+            left: 58%;
+            bottom: 83%;
+        }
+        #jinjiu{
+            position: relative;
+            left: 20.2%;
+            bottom: 92.3%;
+        }
+
+
+
+        /*轮播图*/
+        .scrolImg{
+            height: 100%;
+            width: 100%;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-button-next:after{
+            color: #fff;
+            font-size: 24px;
+        }
+        .swiper-button-prev:after{
+            color: #fff;
+            font-size: 24px;
+        }
+
+        /*关闭页面按钮，播放音乐*/
+        .closeBtn{
+            height: 7%;
+            width: 24%;
+            position: absolute;
+            top: -12px;
+            right: 0px;
+            z-index: 12;
+        }
+        .bofang{
+            height: 40px;
+            margin-top: -1%;
+
+            margin-right: 10%;
+            float: right;
+        }
+
+        /*地址*/
+        .dizhi{
+            position: absolute;
+            text-align: left;
+
+            top: 554px;
+            padding: 0px 33px;!important;
+        }
+        .spandizhi{
+            font-weight: 700;
+            font-size:14px;
+
+        }
+
+        .biaoti{
+            font-family: FZCuSong-B09S; font-size:26px;!important;
+        }
+        /*内容*/
+        .neirong{
+            display: block;
+            width: 282px;
+            height: 245px;
+            font-size: 14px;
+            font-family: SimHei;
+        }
+        .dibiaoimg{
+            width: 130px;
+
+        }
+        .backindex{
+            position: fixed;
+            top: 0px;
+            left: 5px;
+            width: 100px;
+
+        }
+        .backindex img{
+            width: 100%;
+        }
+    }
+
+</style>
+
+<body>
+<div class="div1">
+    <div class="div2">
+        <div class="backtu">
+            <img id="imgid" src="imgs/b2.jpg" alt="">
+        </div>
+
+
+        <div class="floatfont" id="shenyun">
+            <a id="showShenyun" href="#"><img class="dibiaoimg" src="imgs/dibiao/沈钧儒故居.png" alt="沈钧儒故居"></a>
+        </div>
+        <div class="floatfont" id="wanghu">
+            <a id="showWanghu" href="#"><img class="dibiaoimg" src="imgs/dibiao/汪胡桢故居.png" alt="汪胡桢故居"></a>
+        </div>
+        <div class="floatfont" id="zhusheng">
+            <a id="showZhusheng" href="#"><img class="dibiaoimg" src="imgs/dibiao/朱生豪故居.png" alt="朱生豪故居"></a>
+        </div>
+        <div class="floatfont" id="jinjiu">
+            <a id="showJinjiu" href="#"><img class="dibiaoimg" src="imgs/dibiao/金九避难处.png" alt="金九避难处"></a>
+        </div>
+
+
+
+
+    </div>
+</div>
+<div style="display: none;" class="tancuang">
+
+</div>
+
+<!--1-->
+<div id="maxbox01" style="display: none;" class="t-maxbox"  >
+
+    <div class="closeBtn">
+        <img class="close01" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/沈钧儒故居1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/沈钧儒故居2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/沈钧儒故居3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style="">沈钧儒故居</span>
+
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span  class="neirong">沈钧儒（1875－1963）字秉甫，号衡山，嘉兴人。著名爱国民主人士。历任中央人民政府委员、最高人民法院院长、全国人民代表大会常务常委会副委员长、政协副主席等。
+沈钧儒故居旧居为清嘉庆年间建筑，由头门、仪门、前厅、后楼及东西厢房组成。头门西侧为纪念馆辅助陈列室，以不同形式、不同题材展示纪念馆丰富的藏品史料;前厅为沈钧儒铜像瞻仰大厅，面色慈祥的沈钧儒端坐中间，用青铜铸成，神形兼备，前厅东西两壁陈列党和国家领导人为纪念馆题词；后楼为纪念馆主陈列展厅，楼上、楼下展线长300多米，主陈列“伟大的爱国主义者沈钧儒”，以400多幅图片、100多件为依托，极为生动而真切地反映出沈钧儒伟大光辉的一生。
+
+</span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：浙江省嘉兴市南帮岸3号</span>
+        </p>
+    </div>
+</div>
+<!--2-->
+<div id="maxbox02" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close02" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/汪胡桢故居1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/汪胡桢故居2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/汪胡桢故居3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style="">汪胡桢故</span>
+<!--                <img id="bofang02" class="bofang" title="暂停" src="imgs/stop.png" alt="">-->
+<!--                 <audio preload="auto" src="audio/嘉兴南湖火车站.m4a" id="media02" preload="preload"></audio>-->
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span  class="neirong">汪胡桢（1897—1989），水利工程学家，中国科学院学部委员。汪胡桢一生治水业绩：设计建造中国第一座大型连拱坝——佛子岭水库及黄河三门峡水库等。著有《水工隧洞的设计理论和计算》、《地下洞室的结构计算》。
+汪胡桢故居位于浙江嘉兴市南湖区建设街道梅湾街东区帆落浜，地濒鸳水边。1928年汪胡桢受聘为太湖水利工程处副总工程师时，在帆落浜东购地4亩，筑小楼奉母养颐。抗战时楼毁。1948年重建西式平房名“湖滨小筑”。小院依水而建，以传统青砖砌墙建造，质朴典雅，院内树木郁郁葱葱，景色优美，鸳水静静的流淌，宛如带子环绕一侧。幽静中，故居特显它文人般的宁静致远，仿若汪胡桢先生一生的写照简约而朴素。
+</span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区帆落浜39号</span>
+        </p>
+    </div>
+</div>
+<!--3-->
+<div id="maxbox03" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close03" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/宣公祠1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/宣公祠2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/宣公祠3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style="">朱生豪故居</span>
+<!--                <img id="bofang03" class="bofang" title="暂停" src="imgs/stop.png" alt="">-->
+<!--                 <audio preload="auto" src="audio/宣公祠.m4a" id="media03" preload="preload"></audio>-->
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span  class="neirong">朱生豪（1912-1944），浙江嘉兴人。他所译的《莎士比亚戏剧全集》是迄今我国莎士比亚作品的最完整的、质量较好的译本。他是中国翻译莎士比亚作品较早的人之一，译文质量和风格卓具特色，为国内外莎士比亚研究者所公认。堪称近百年来中国翻译界、甚至是中华民族的骄傲！
+故居为具有浙北风格的传统民居，坐东朝西，建筑现存两层的楼屋五间、南北偏屋各两间和东北侧的小偏房(灶披间)两间，东西有前后院。故居参观主要分成两部分，一楼为陈列厅，从左往右参观，分为三部分，从幼时到青年到离世前；二楼为旧时卧室。
+</span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区禾兴南路73号</span>
+        </p>
+    </div>
+</div>
+<!--4-->
+<div id="maxbox04" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close04" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/金九避难处1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/金九避难处2.jpg" alt="" /></div>
+
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">金九避难处</span>
+<!--                <img id="bofang04" class="bofang" title="暂停" src="imgs/stop.png" alt="">-->
+<!--                 <audio preload="auto" src="audio/狮子汇渡口.m4a" id="media04" preload="preload"></audio>-->
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span  class="neirong">
+                   金九（1876－1949），号白凡，著名韩国独立运动领袖。金九派朝鲜爱国志士尹奉吉制造了震惊中外的“虹口公园爆炸案”后被通缉，在嘉兴爱国人士褚辅成的帮助下，金九等人辗转来嘉兴避难，许多韩国临时政府要员也相继到嘉兴开展工作。
+原为褚辅成先生的寄子陈桐生所有，是陈桐生的私宅。避难处为砖木结构的庭院，是东西两间亭子间布局，建筑面积50平方米。西侧为一条陪弄，南侧有一扇小门，门外为可直通河港的河廊，方便及时上船转移。房屋西面一间为小书房，有书桌等物品。东面一间为客厅，有茶几、桌椅等，并有壁橱式的暗门直通楼上卧室。卧室西北角有一巧妙的活动地板，人遇紧急情况时可打开地板，从楼上直接通向陪弄直至河边及时撤退。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区梅湾街76号</span>
+        </p>
+    </div>
+</div>
+
+<div class="backindex">
+    <a href="index.html"><img src="imgs/index.png" alt=""></a>
+</div>
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="swiper/swiper-bundle.min.js"></script>
+<script src="js/minMap.js"></script>
+<script>
+    $("body").css("height",window.screen.availHeight);//获取屏幕高度，并设置高度
+    var mySwiper = new Swiper ('.swiper', {
+        direction: 'horizontal', // 垂直切换选项
+        loop: true, // 循环模式选项
+
+        // 如果需要分页器
+        // pagination: {
+        //     el: '.swiper-pagination',
+        // },
+
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+        // scrollbar: {
+        //     el: '.swiper-scrollbar',
+        // },
+    })
+</script>
+</html>

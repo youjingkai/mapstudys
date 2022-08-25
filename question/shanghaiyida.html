@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>答题</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/hovertreeanswer.css" rel="stylesheet" />
+    <style>h2{color:white;text-align:center;}a{color:deeppink;font-size:16px;}</style>
+</head>
+<style>
+    .card{
+        color: rgb(111,100,86);
+    }
+</style>
+<body style="background-color:rgb(255,251,240)">
+
+<div class="wrapper">
+
+
+    <div id="answer" class="card_wrap">
+        <!--Q1-->
+        <div class="card_cont card1">
+            <div class="card">
+                <p class="question">以下不属于中共一大成功召开的意义的是：</p>
+                <ul class="select">
+                    <li>
+                        <!--                        <input id="q1_1" type="radio" name="r-group-1"  style="display: none" value="A">-->
+                        <label onclick="click01(this)"  for="q1_1"  value="A">A.中国共产党诞生
+                        </label>
+                    </li>
+                    <li>
+                        <!--                        <input id="q1_2" type="radio" name="r-group-1" style="display: none" value="B">-->
+                        <label onclick="click01(this)"  for="q1_2"  value="B"> B.一个新的统一的无产阶级政党
+
+                        </label>
+                    </li>
+                    <li>
+                        <!--                        <input id="q1_3" type="radio" name="r-group-1" style="display: none" value="C">-->
+                        <label onclick="click01(this)"  for="q1_3"  value="C"> C.中国的革命焕然一新
+
+                        </label>
+                    </li>
+                    <li>
+                        <!--                        <input id="q1_4" type="radio" name="r-group-1" style="display: none" value="D">-->
+                        <label id="answerYes01" onclick="click01(this)"  for="q1_4"  value="D">D.人民能够当家作主</label>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+        <!--Q2-->
+        <div class="card_cont card2">
+            <a class="close" href="../index.html"></a>
+            <div class="card">
+                <p class="question">以下关于中国共产党正确的是：</p>
+                <ul class="select">
+                    <li >
+                        <!--                        <input id="q2_1" type="radio" name="r-group-2" value="A" style="display: none">-->
+                        <label onclick="click02(this)"  for="q2_1" value="A">A.党的宗旨是全心全意为人民服务
+
+
+
+
+
+                        </label>
+                    </li>
+                    <li  >
+                        <!--                        <input id="q2_2" type="radio" name="r-group-2" value="B" style="display: none">-->
+                        <label  id="answerYes02" onclick="click02(this)"  for="q2_2" value="B">B. 中国共产党于1921.8.1成立
+
+
+                        </label>
+                    </li>
+                    <li class="li" >
+                        <!--                        <input id="q2_3" type="radio" name="r-group-2" value="C" style="display: none">-->
+                        <label onclick="click02(this)"  for="q2_3" value="C">C.马克思列宁主义是党的指导思想之一
+
+                        </label>
+                    </li>
+                    <li class="li" style="    margin-top: -8px;">
+
+                        <!--                        <input id="q2_4" type="radio" name="r-group-2" value="D" style="display: none">-->
+                        <label onclick="click02(this)"  for="q2_4" value="D"> D.中国共产党是中国工人阶级、中国人民、中华民族的先锋队</label>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="../js/hovertreeanswer.js"></script>
+<script>
+    $(function(){
+        $("#answer").answerSheet({});
+    })
+</script>
+<script>
+
+    var yes1=true;
+    var yes2=true;
+    function click01(obj){
+        if(yes1){
+            let item = $(obj).attr("value");
+            if(item=='D'){
+                var img=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                $(obj).after(img);
+            }else{
+                var img=$('<img class="gou" src="../imgs/questions/叉.png" alt="">');
+                $(obj).after(img);
+                var img1=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                $("#answerYes01").after(img1);
+
+            }
+            setTimeout(function () {
+                $(".card1").css("display","none");
+                $(".card2").css("display","block");
+            },2100)
+        }else{
+
+        }
+        yes1=false;
+    }
+
+    function click02(obj){
+        if(yes2){
+            let item = $(obj).attr("value");
+            if(item=='B'){
+                var img=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                $(obj).after(img);
+            }else{
+                if(item=='D'){
+
+                    var img=$('<img class="gou2" src="../imgs/questions/叉.png" alt="">');
+                    $(obj).after(img);
+                    var img1=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                    $("#answerYes02").after(img1);
+                }
+                else{
+                    var img=$('<img class="gou" src="../imgs/questions/叉.png" alt="">');
+                    $(obj).after(img);
+                    var img1=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                    $("#answerYes02").after(img1);
+                }
+
+            }
+            // setTimeout(function () {
+            //     $(".card1").css("display","none");
+            //     $(".card2").css("display","block");
+            // },2100)
+        }else{
+
+        }
+        yes2=false;
+    }
+</script>
+</body>
+
+</html>

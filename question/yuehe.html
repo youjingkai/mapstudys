@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>答题</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/hovertreeanswer.css" rel="stylesheet" />
+    <style>h2{color:white;text-align:center;}a{color:deeppink;font-size:16px;}</style>
+</head>
+<style>
+    .card{
+        color: rgb(111,100,86);
+    }
+</style>
+<body style="background-color:rgb(255,251,240)">
+
+<div class="wrapper">
+
+
+    <div id="answer" class="card_wrap">
+
+        <!--Q2-->
+        <div class="card_cont card2">
+            <a class="close" href="../index.html"></a>
+            <div class="card">
+                <p class="question">以下哪条河流不属于月河“三河三街”中的“三河”：</p>
+                <ul class="select">
+                    <li>
+                        <!--                        <input id="q2_1" type="radio" name="r-group-2" value="A" style="display: none">-->
+                        <label id="answerYes02" onclick="click02(this)"  for="q2_1" value="A">A.新塍塘
+                        </label>
+                    </li>
+                    <li>
+                        <!--                        <input id="q2_2" type="radio" name="r-group-2" value="B" style="display: none">-->
+                        <label onclick="click02(this)"  for="q2_2" value="B">B. 里月河
+                        </label>
+                    </li>
+                    <li>
+                        <!--                        <input id="q2_3" type="radio" name="r-group-2" value="C" style="display: none">-->
+                        <label onclick="click02(this)"  for="q2_3" value="C">C.外月河
+
+
+                        </label>
+                    </li>
+                    <li>
+
+                        <!--                        <input id="q2_4" type="radio" name="r-group-2" value="D" style="display: none">-->
+                        <label onclick="click02(this)"  for="q2_4" value="D"> D.京杭大运河</label>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="../js/hovertreeanswer.js"></script>
+<script>
+    $(function(){
+        $("#answer").answerSheet({});
+    })
+</script>
+<script>
+
+    var yes1=true;
+    var yes2=true;
+    function click01(obj){
+        if(yes1){
+            let item = $(obj).attr("value");
+            if(item=='B'){
+                var img=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                $(obj).after(img);
+            }else{
+                var img=$('<img class="gou" src="../imgs/questions/叉.png" alt="">');
+                $(obj).after(img);
+                var img1=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                $("#answerYes01").after(img1);
+
+            }
+            setTimeout(function () {
+                $(".card1").css("display","none");
+                $(".card2").css("display","block");
+            },2100)
+        }else{
+
+        }
+        yes1=false;
+    }
+
+    function click02(obj){
+        if(yes2){
+            let item = $(obj).attr("value");
+            if(item=='A'){
+                var img=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                $(obj).after(img);
+            }else{
+                var img=$('<img class="gou" src="../imgs/questions/叉.png" alt="">');
+                $(obj).after(img);
+                var img1=$('<img class="gou" src="../imgs/questions/勾.png" alt="">');
+                $("#answerYes02").after(img1);
+
+            }
+            // setTimeout(function () {
+            //     $(".card1").css("display","none");
+            //     $(".card2").css("display","block");
+            // },2100)
+        }else{
+
+        }
+        yes2=false;
+    }
+</script>
+</body>
+
+</html>

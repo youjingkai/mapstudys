@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>红色路线</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link rel="stylesheet" href="swiper/swiper-bundle.min.css">
+
+
+<!--<link rel="stylesheet" href="css/index.scss">-->
+<style>
+    /* 大屏幕 ：大于等于980px*/
+    @media (min-width: 980px) {
+
+    }
+
+    /*!* 平板电脑和小屏电脑之间的分辨率 *!*/
+    @media (min-width: 768px) and (max-width: 979px) {
+
+    }
+
+    /* 横向放置的手机及分辨率更小的设备 */
+    @media (max-width: 768px) {
+
+        html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*新知识，盒子大小不会受padding和margin的影响*/
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        body {
+            width: 100%;
+            /*height: 667px;*/
+            /*height: 100%;*/
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+
+
+
+        .tancuang {
+            position: fixed;
+            background: #000;
+            z-index: 10;
+            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            /*display: none;*/
+        }
+
+        .t-maxbox {
+            position: fixed;
+            z-index: 11;
+            width: 350px;
+            height: 604px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            /* transform: translateY(-50%); */
+            top: 53%;
+            background-color: rgb(255, 251, 240);
+
+        }
+        .t-lunbo {
+            height: 40%;
+            width: 100%;
+            /*background-color: rgb(18, 52, 205);*/
+        }
+        .t-neirong {
+            height: 60%;
+            width: 100%;
+            color: rgb(117,101,86);
+
+        }
+
+
+/*地图*/
+        .div1 {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            /*overflow: hidden;*/
+
+            overflow:scroll;
+        }
+        .div1::-webkit-scrollbar{
+            display: none;
+        }
+
+        .div2 {
+            width: 980px;
+            height: 1048px;
+            /*width: 100%;*/
+            /*height: 100%;*/
+            position: relative;
+            /*background-color: #cc4e71;*/
+            /*margin-left: 50%;*/
+        }
+.contents{
+    padding: 0px 33px;!important;
+}
+       .closeBtn img {
+            height: 100%;
+            /*margin-left: -50%;*/
+        }
+        .backtu{
+            position: relative;
+            top: 40px;
+            left: 40px;
+            /*margin-right: 20px;*/
+            /*background-color: #cc4e71;*/
+            width: 900px;
+
+            height: 1048px;
+            /*width: 100%;*/
+            /*height: 100%;*/
+        }
+        #imgid{
+            /*height: 100%;*/
+            width: 100%;
+            margin-right: 40px;
+            /*margin-left: -50%;*/
+        }
+        .floatfont{
+            width: 114px;
+            height: 95px;
+        }
+
+        #yida{
+            position: absolute;
+            right: 19%;
+            top: 12%;
+        }
+        #jiaxing{
+            position: absolute;
+            right: 34.5%;
+            top: 28%;
+        }
+        #xuangong{
+            position: absolute;
+            right: 37%;
+            top: 35.5%;
+        }
+        #shizi{
+            position: absolute;
+            right: 47.5%;
+            top: 32%;
+        }
+        #hongchuan{
+            position: absolute;
+            right: 46.5%;
+            top: 41.5%;
+        }
+        #nanhu{
+            position: absolute;
+            left: 50%;
+            bottom: 38.5%;
+
+        }
+        #geming{
+            position: absolute;
+            left: 39%;
+            bottom: 41.5%;
+        }
+        #yuehe{
+            position: absolute;
+            left: 32%;
+            bottom: 72%;
+        }
+        #santa{
+            position: absolute;
+            left: 14%;
+            bottom: 49%;
+        }
+        #zicheng{
+            position: absolute;
+            left: 32.3%;
+            bottom: 56%;
+        }
+        #meiwan{
+            position: absolute;
+            left: 26%;
+            bottom: 45%;
+        }
+        #jiaxingbowuguan{
+            position: absolute;
+            left: 51%;
+            bottom: 31.5%;
+        }
+        #huxindao{
+            position: absolute;
+            left: 46%;
+            bottom: 47%;
+        }
+
+/*轮播图*/
+.scrolImg{
+    height: 100%;
+    width: 100%;
+}
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-button-next:after{
+            color: #fff;
+            font-size: 24px;
+        }
+        .swiper-button-prev:after{
+            color: #fff;
+            font-size: 24px;
+        }
+
+        /*关闭页面按钮，播放音乐*/
+        .closeBtn{
+            height: 7%;
+            width: 24%;
+            position: absolute;
+            top: -12px;
+            right: 0px;
+            z-index: 12;
+        }
+        .bofang{
+            height: 40px;
+            margin-top: -1%;
+
+            margin-right: 10%;
+            float: right;
+        }
+
+        /*地址*/
+        .dizhi{
+            position: absolute;
+            text-align: left;
+
+            top: 543px;
+            padding: 0px 33px;!important;
+        }
+        .spandizhi{
+            font-weight: 700;
+            font-size:14px;
+
+        }
+
+        .biaoti{
+            font-family: FZCuSong-B09S; font-size:26px;!important;
+        }
+/*内容*/
+.neirong{
+    display: block;
+    width: 282px;
+    height: 230px;
+    font-size: 14px;
+    font-family: SimHei;
+}
+.dibiaoimg{
+    width: 113px;
+
+}
+
+
+    }
+
+</style>
+
+<body>
+<div class="div1">
+    <div class="div2">
+        <div class="backtu">
+            <img id="imgid" src="imgs/b1.jpg" alt="">
+        </div>
+
+
+        <div class="floatfont" id="yida">
+            <a id="showYida" href="#"><img class="dibiaoimg" src="imgs/dibiao/中共一大会址.png" alt="中共一大会址"></a>
+        </div>
+        <div class="floatfont" id="jiaxing">
+            <a id="showJiaxing" href="#"><img class="dibiaoimg" src="imgs/dibiao/火车站.png" alt="火车站"></a>
+        </div>
+        <div class="floatfont" id="xuangong">
+            <a id="showXuangong" href="#"><img class="dibiaoimg" src="imgs/dibiao/宣公祠.png" alt="宣公祠"></a>
+        </div>
+        <div class="floatfont" id="shizi">
+            <a id="showShizi" href="#"><img class="dibiaoimg" src="imgs/dibiao/狮子汇渡口.png" alt="狮子汇渡口"></a>
+        </div>
+        <div class="floatfont" id="hongchuan">
+            <a id="showHongchuan" href="#"><img style="width: 90px;" class="dibiaoimg" src="imgs/dibiao/红船.png" alt="红船"></a>
+        </div>
+        <div class="floatfont" id="huxindao">
+            <a id="showHuxindao" href="#"><img  class="dibiaoimg" src="imgs/dibiao/湖心岛.png" alt="湖心岛"></a>
+        </div>
+        <div class="floatfont" id="nanhu">
+            <a id="showNanhu" href="#"><img class="dibiaoimg" src="imgs/dibiao/南湖革命紀念館.png" alt="南湖革命纪念馆"></a>
+        </div>
+        <div class="floatfont" id="geming">
+            <a id="showGeming" href="#"><img class="dibiaoimg" src="imgs/dibiao/革命烈士陵园.png" alt="革命烈士陵园"></a>
+        </div>
+        <div class="floatfont" id="yuehe">
+            <a id="showYuehe" href="#"><img class="dibiaoimg" src="imgs/dibiao/月河.png" alt="月河"></a>
+        </div>
+        <div class="floatfont" id="santa">
+            <a id="showSanta" href="#"><img class="dibiaoimg" src="imgs/dibiao/三塔.png" alt="三塔"></a>
+        </div>
+        <div class="floatfont" id="zicheng">
+            <a id="showZicheng" href="#"><img class="dibiaoimg" src="imgs/dibiao/子城.png" alt="子城"></a>
+        </div>
+        <div class="floatfont" id="meiwan">
+            <a id="showMeiwan" href="minMap.html"><img class="dibiaoimg" src="imgs/dibiao/梅湾街.png" alt="梅湾街"></a>
+        </div>
+        <div class="floatfont" id="jiaxingbowuguan">
+            <a id="showJiaxingbowuguan" href="#"><img class="dibiaoimg" src="imgs/dibiao/博物館.png" alt="嘉兴博物馆"></a>
+        </div>
+
+
+
+    </div>
+</div>
+<div style="display: none;" class="tancuang">
+
+</div>
+<!--1-->
+<div id="maxbox01" style="display: none;" class="t-maxbox"  >
+
+    <div class="closeBtn">
+        <img class="close01" src="imgs/关闭.png-hd" alt="">
+    </div>
+    
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" lazyload="true" src="" data-url="imgs/addressImg/一大会址1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" lazyload="true" src="" data-url="imgs/addressImg/一大会址2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" lazyload="true" src="" data-url="imgs/addressImg/一大会址3.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" lazyload="true" src="" data-url="imgs/addressImg/一大会址4.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" lazyload="true" src="" data-url="imgs/addressImg/一大会址5.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" lazyload="true" src="" data-url="imgs/addressImg/一大会址6.jpg" alt="" /></div>
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+<!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+<!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style="">中共一大会址</span>
+
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span  class="neirong">中国共产党第一次全国代表大会会址（主址）是一座砖木结构旧式石库门住宅建筑，坐北朝南。1920年秋，上海法国租界内望志路106号、108号两幢房屋建成，李汉俊、李书城兄弟租用该两栋房屋，并将房屋间内墙打通，打造为寓所，人称”李公馆“。
+1921年7月23日至7月30日、8月3日，中国共产党第一次全国代表大会先后在上海和嘉兴的会址内举行。一大会址是中国共产党的诞生地，也是中国共产党人的精神家园。
+中共一大纪念馆位于中共一大会址（主址）内，为国家一级博物馆，由中国共产党第一次全国代表大会会址、宣誓大厅、新建展馆等部分组成。
+</span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：上海市黄陂南路373号</span>
+        </p>
+    </div>
+</div>
+<!--2-->
+<div id="maxbox02" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close02" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/火车站1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/火车站2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/火车站3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style="">嘉兴火车站</span>
+                <img id="bofang02" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" preload="auto" src="audio/嘉兴南湖火车站.m4a" id="media02"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span  class="neirong">嘉兴火车站于1907年建站，1909年投入使用，是当时沪杭线上重要的交通枢纽。1921年中共一大代表，从上海乘坐火车来到嘉兴火车站，成为中共一大召开的重要历史见证。原火车站于1937年被侵华日军炸毁后，日军按照其军事目的，重建了站房和碉楼。2021年，按一比一等比例，复建站房。
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区城东路179号</span>
+        </p>
+    </div>
+</div>
+<!--3-->
+<div id="maxbox03" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close03" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/宣公祠1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/宣公祠2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/宣公祠3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style="">宣公祠</span>
+                <img id="bofang03" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" preload="auto" src="audio/宣公祠.m4a" id="media03" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span  class="neirong">宣公祠位于嘉兴市区的宣公弄，是为纪念和展示唐朝著名政治家、文学家、政论家，嘉兴人陆贽（因谥号“宣”，后世称其陆宣公）而异地重建。宣公祠占地面积400多平方米，前为祠堂，后为书院，是端庄典雅的两进江南庭院。在第一进宣公祠，匾额、画像、抱柱、雕窗……再现了中唐时期祠堂的布局风貌。在第二进宣公书院，一楼设有“清廉罡风”“治世安邦”两个版块。曾国藩曾评价陆贽：宣公明于义理，事多疑之主，驭难驯之将，烛之以至明，将之以至诚！ </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：浙江省嘉兴市南湖区城东路9-4号</span>
+        </p>
+    </div>
+</div>
+<!--4-->
+<div id="maxbox04" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close04" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/狮子汇渡口1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/狮子汇渡口2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/狮子汇渡口3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">狮子汇渡口</span>
+                <img id="bofang04" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" src="audio/狮子汇渡口.m4a" id="media04" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span  class="neirong">
+                   狮子汇渡口是中共一大代表登渡船到湖心岛的码头，是整个新时代，“重走一大路上”最重要节点之一。2001年，狮子汇渡口设立中共一大代表雕塑群，2002年根据史料推断，以1：1原始尺寸复建春波门城墙。春波门是嘉兴古城四门之一的东门，当年部分一大代表就是从春波门进城，入住鸳湖旅馆，又在春波门前的狮子汇渡口上船到湖心岛再换成游船在船上续开一大会议，成立了伟大的中国共产党。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市市区环城东路宣公桥堍</span>
+        </p>
+    </div>
+</div>
+<!--5-->
+<div id="maxbox05" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close05" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/红船1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/红船2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/红船3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">红船</span>
+                <img id="bofang05" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" src="audio/红船.m4a" id="media05" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span class="neirong">
+                   中共一大纪念船，这艘看似普通的红船船就是举世瞩目的中国革命的领航船，因为他是中国共产党党史的起点，人们也亲切地称之为党的摇篮，这是一艘中型的丝网船，长约16米，宽三米，内设有前舱、中舱和后舱，以一条夹弄贯通各舱弄的整个布局。中舱的整个布局就是当年一大南湖会议时的场景。就是这艘外观不起眼的江南丝网船，见证了中国开天辟地的大事变。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：南湖湖心岛</span>
+        </p>
+    </div>
+</div>
+<!--6-->
+<div id="maxbox06" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close01" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/南湖革命纪念馆1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/南湖革命纪念馆2.jpg" alt="" /></div>
+
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">南湖革命纪念馆</span>
+                <img id="bofang06" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" src="audio/南湖革命纪念馆.m4a" id="media06" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span class="neirong">
+                   南湖革命纪念馆位于南湖南岸，于2011年七月建成，对外开放占地面积2.73公顷，由一主两副三幢建筑组成，建筑总面积19633平方米中，展厅面积7794平方米，整个场馆造型成“工”字形，建筑四周有56根岩柱，整座建筑庄重大气。南湖革命纪念馆“开天辟地”，“光辉历程”两个展览，主楼一二层成为“开天辟地”展览，主楼三层为“光辉历程”展览，重点突出中国共产党创建的整个历史背景和过程，体现南湖革命纪念馆作为党的诞生地，纪念馆的地方特色。同时又将展览内容向后延伸至当代，较为完整的展示中国共产党90多年的光辉历程。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区烟雨路186号（七一广场）</span>
+        </p>
+    </div>
+</div>
+<!--7-->
+<div id="maxbox07" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close01" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/革命烈士陵园1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/革命烈士陵园2.jpg" alt="" /></div>
+
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">革命烈士陵园</span>
+                <img id="bofang07" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" src="audio/革命烈士陵园.m4a" id="media07" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span class="neirong">
+                  英雄园即嘉兴革命烈士陵园始建于1969年，原址在市区三塔路，是新中国成立后为纪念为嘉兴解放牺牲的革命先烈而建。1996年5月，搬迁至南湖风景名胜区，占地面积30.1亩。2005年底进行整体改造，2006年3月正式竣工对外开放。英雄园分设英雄纪念碑、英雄广场、英烈园（烈士墓区）、嘉兴革命历史陈列馆等区域。英雄纪念碑总高度7米，宽12.5米，由总重400吨的66块花岗石拼装而成，底座四面浮雕以嘉兴革命和建设时期的重大事件为背景，表现各个时期英雄人物的献身精神。嘉兴革命历史陈列馆位于园区西侧，用以史串人、以人彰史的方式，展示了各个不同历史阶段革命先烈的英雄事迹和嘉兴地方革命史。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区南溪西路与花园路交汇处附近东北</span>
+        </p>
+    </div>
+</div>
+<!--8-->
+<div id="maxbox08" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close08" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/月河1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/月河2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/月河3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">月河</span>
+                <img id="bofang08" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" src="audio/月河历史街区.m4a" id="media08" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span class="neirong">
+                  月河历史街区，浙江省嘉兴市市区现存最完整、规模最大、最能反映江南水乡城市居住特色和文化特色的区域之一。它位于嘉兴市区华庭街、嘉禾北京城中心商务区内，由环城北路、建国北路、禾兴南路和同乐路围合而成。月河其实是运河的一条支流，因“其水弯曲抱城如月”而得名。月河历史街区以“三河三街”为基本格局，“三河”指的是京杭大运河、里月河和外月河；“三街”指的是中基路、坛弄、秀水兜街。街区内汇聚了江河端午民俗体验馆，嘉兴灶头画艺术中心，嘉兴粽子文化博物馆等景点。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区建国北路22号</span>
+        </p>
+    </div>
+</div>
+<!--9-->
+<div id="maxbox09" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close09" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/三塔1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/三塔2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/三塔3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">三塔</span>
+                <img id="bofang09" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" src="audio/三塔.m4a" id="media09" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span class="neirong">嘉兴三塔，位于嘉兴西门外京杭古运河畔。原茶禅寺前。塔初建于唐代。该塔是一座富有传统建筑风格的砖塔，造型美观， 观之赏心悦目，因其结构严谨科学，虽历经千年的历史风烟，仍巍然屹立，足以说明古代劳动人民在建筑科学和艺术上的聪明智慧，据《嘉禾志》记载：此处有白龙潭．水深流急，行舟过此多沉溺，人们推测“潭中有白龙兴风作浪，于是运土填潭，建三塔以镇之。”唐季僧行云，运土填潭．建塔三座以“镇潭中白龙”。嘉兴三塔，面河背城，旧时舟子遥见三塔，遂谨慎行驶，塔实起航标作用。每逢农历三月十六日，有踏白船等汉族传统民俗文化活动。 </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区三塔路</span>
+        </p>
+    </div>
+</div>
+<!--10-->
+<div id="maxbox10" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close10" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/子城1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/子城2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/子城3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">子城</span>
+                <img id="bofang10" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                 <audio preload="auto" src="audio/子城.m4a" id="media10" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span class="neirong">
+                  嘉兴子城，为嘉兴最早的城垣。城内历为县、府、军、路、府的衙署。嘉兴子城建于三国吴黄龙三年（231），至今已有一千七百多年历史。子城周长二里十步，高、厚为一丈二尺，占地7.5万平方米。唐末由于子城外兴建了罗城，故原城改称子城（另说原在子城周围遍植梓树，先前叫梓城，后讹化为子城）。元代在子城正门上建一楼，名“丽谯”。谯楼，明代两次重建。现存子城谯楼及东西两侧城墙为清光绪三十四年（1908年）重修。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区府前街65号</span>
+        </p>
+    </div>
+</div>
+<!--11-->
+<div id="maxbox11" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close11" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/嘉兴博物馆1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/嘉兴博物馆2.jpg" alt="" /></div>
+
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">嘉兴博物馆</span>
+<!--                <img id="bofang11" class="bofang" title="暂停" src="imgs/stop.png" alt="">-->
+<!--                 <audio preload="auto" src="audio/嘉兴南湖火车站.m4a" id="media11" preload="preload"></audio>-->
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span class="neirong">
+                  嘉兴博物馆，现馆建筑面积22000平方米，是一座集收藏、研究、展示和教育于一体的综合性博物馆，始于1958年。馆内藏品丰富，结构较完整，从不同侧面反映了嘉兴各个时期的文化风貌。馆内 “禾兴之源——史前时期的嘉兴”和“沃土嘉禾——历史时期的嘉兴” 两个基本陈列，梳理了整个嘉兴的发展过程，以丰富多彩的馆藏文物和独具匠心的展览手法，多层次、多角度地展示嘉兴悠久的历史和灿烂的文化。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：浙江省嘉兴市南湖区海盐塘路485号（嘉兴博物馆）
+<!--                <br>-->
+<!--浙江省嘉兴市南湖区马家浜路297号（马家浜文化博物馆）-->
+</span>
+        </p>
+    </div>
+</div>
+<!--12-->
+<div id="maxbox12" class="t-maxbox" style="display: none;">
+
+    <div class="closeBtn">
+        <img class="close12" src="imgs/关闭.png-hd" alt="">
+    </div>
+
+    <div class="t-lunbo">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/湖心岛1.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/湖心岛2.jpg" alt="" /></div>
+                <div class="swiper-slide"><img class="scrolImg" src="" lazyload="true" data-url="imgs/addressImg/湖心岛3.jpg" alt="" /></div>
+
+
+
+            </div>
+            <!-- 如果需要分页器 -->
+            <!--            <div class="swiper-pagination"></div>-->
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- 如果需要滚动条 -->
+            <!--            <div class="swiper-scrollbar"></div>-->
+        </div>
+    </div>
+    <div class="t-neirong">
+        <div class="contents" style="overflow: auto;">
+
+            <p class="MsoNormal"style="text-align: left;margin-top: 16px;margin-bottom: 12px;">
+                <span class="biaoti" style=" ">湖心岛</span>
+                                <img id="bofang12" class="bofang" title="暂停" src="imgs/stop.png" alt="">
+                                 <audio preload="auto" src="audio/湖心岛烟雨楼.m4a" id="media12" preload="preload"></audio>
+            </p>
+
+
+
+            <p class="MsoNormal"style="text-align: left;">
+                <span class="neirong">
+                 湖心岛位于南湖中心，全岛面积17亩。明嘉靖二十七年（公元1548年）嘉兴知府赵瀛组织疏浚城河，将淤泥垒土成岛，次年移建烟雨楼于岛上。清以后又相继建建成清晖堂、孤云簃、小蓬莱、来许亭、鉴亭、宝梅亭、东和西御碑亭、访踪亭等建筑，形成了以烟雨楼为主体的古园林建筑群，亭台楼阁、假山回廊、古树碑刻，错落有致，是典型的江南园林。
+
+                </span>
+            </p>
+
+
+        </div>
+        <p class="dizhi"style="text-align: left;">
+            <span class="spandizhi">场馆地址：嘉兴市南湖区海盐塘路188号（南湖景区内）
+                <!--                <br>-->
+                <!--浙江省嘉兴市南湖区马家浜路297号（马家浜文化博物馆）-->
+</span>
+        </p>
+    </div>
+</div>
+
+
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="swiper/swiper-bundle.min.js"></script>
+<script src="js/index.js"></script>
+
+<script>
+    $("body").css("height",window.screen.availHeight);//获取屏幕高度，并设置高度
+    var mySwiper = new Swiper ('.swiper', {
+        direction: 'horizontal', // 垂直切换选项
+        loop: true, // 循环模式选项
+
+        // 如果需要分页器
+        // pagination: {
+        //     el: '.swiper-pagination',
+        // },
+
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+        // scrollbar: {
+        //     el: '.swiper-scrollbar',
+        // },
+    })
+</script>
+</html>
